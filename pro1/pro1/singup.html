@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="./stylesheet" href="stylesheet.css">
+<style>
+    fieldset{
+        width:10cm;
+        height: 13cm;
+        background: linear-gradient(rgb(221, 138, 221),rgb(134, 134, 221));
+        margin-left:13cm;
+        margin-top:3cm;
+    
+    }
+    body{
+        background-color: rgb(136, 219, 219);
+    }
+input{
+    width:5cm;
+    height:20px;
+    border-radius: 1cm;
+}
+   button{
+    border-radius: 10px;
+    width:3cm;
+    height: 30px;
+    background-color: rgb(178, 235, 122)
+   } 
+
+</style>
+
+    <script>
+    function signup_validation(){
+        //phone validation
+        var phone_no = document.getElementById("phone").value
+        var flag_phone =false
+        if((6000000000<=phone_no)&&(phone_no<=9999999999))
+        {
+            flag_phone=true
+        }
+        //email validation
+        var Email=document.getElementById("mail").value
+        var flag_email = false
+        for(var i=0;i<Email.length;i++){
+            if(Email[i]=='@'){
+                flag_email=true
+            }
+        }
+        //password validation
+        var password =document.getElementById("password").value
+        var flag_password=false
+        var upper=0
+        var lower=0
+        var num=0
+        var special=0
+        for(var i=0;i<password.length;i++){
+            if(('A'<=password[i]) && (password[i]<='Z'))
+            {
+                upper++
+            }else if(('a'<=password[i]) && (password[i]<='z'))
+            {
+                lower++
+            }else if(('0'<=password[i]) && (password[i]<='9'))
+            {
+                num++
+            }else {
+                special++
+    
+            }
+        }
+        if((upper>=1)&&(lower>=1)&&(num>=1)&&(special>=1)&&(password.length>=8)&&(password.length<=12)){
+            flag_password=true
+        }
+        var confirm=document.getElementById("confirm").value
+        var flag_confirm=false
+        {
+            if(password==confirm){
+                flag_confirm=true
+            }
+        }
+        //final validation
+        if((flag_phone==true)&&(flag_email==true)&&(flag_password==true)&&(flag_confirm==true))
+        {
+            window.location.href="./send otp.html"
+        }else{
+            document.getElementById("error").innerHTML="Invalid Details"
+            document.getElementById("error").style.color="red"
+        }  
+    }</script>
+
+</head>
+<body><fieldset>
+    <form>
+        <label>
+            <table>
+           <tr>
+            <td>
+           <h5> FIRST  NAME:</h5>
+            </td>
+            <td>
+            <input type="text" placeholder="eg.eagle">
+            </td>
+        </tr>
+        <tr>
+            <td>
+           <h5> LAST NAME:</h5>
+            </td>
+            <td>
+            <input type="text" placeholder="eg.p">
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <h5> MOBILE NUMBR</h5>
+            </td>
+            <td>
+            <input type="number" id="phone">
+            </td>
+        </tr>
+        <tr>
+            <td>
+           <h5> EMAIL ID:</h5>
+            </td>
+            <td>
+            <input type="email" placeholder="eg.mail@gmai.com" id="mail">
+            </td>
+        </tr>
+        <tr>
+            <td>
+           <h5> PASSWORD:</h5>
+            </td>
+            <td>
+            <input type="=password"placeholder="eg.password" id="password">
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <h5>CONFIRM PASSWORD:</h5>
+            </td>
+            <td>
+            <input type="password" placeholder="eg.rewrite password" id="confirm">
+            </td>
+        </tr>
+        <tr>
+            
+           <!-- <input type="checkbox"> If you Read  And Agree the terms and condition to click on the box<BR><BR> -->
+            
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+        <button type="button" onclick="signup_validation()"> 
+                    SIGNUP</button> 
+        </td> 
+        <td>
+                    <p id="error"></p>
+        </td>
+        </tr>
+            </table>
+        </label>
+    </form>
+    </fieldset>
+</body>
+</html>

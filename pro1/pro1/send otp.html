@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            margin-left: 10cm;
+            margin-top: 3cm;
+        }
+        input{
+            width: 4cm;
+            height: 30px;
+            border-radius: 1cm;
+
+        }
+        button{
+            width: 4cm;
+            height: 30px;
+            background-color: aqua;
+            border-radius: 1cm;
+        }
+        body{
+            background-color: rgb(218, 155, 218);
+        }
+        
+        
+    </style>
+    <script>
+        var otp=Math.floor(Math.random()*999999)
+        alert(otp)
+        function otp_verification(){
+            var user_otp=document.getElementById("OTP").value 
+            if(otp==user_otp){
+                window.location.href="./index.html"
+            }
+            else{
+            document.getElementById("otp_error").innerHTML="Incorrect OTP"
+            document.getElementById("otp_error").style.color="red"
+            document.getElementById("otp_error").style.fontSize="20px"
+            }
+
+        }
+        function resend_otp(){
+            window.location.href="verify.html"
+        }
+
+
+    </script>
+</head>
+<body>
+    <div>
+        <label>
+            <h2>MOBILE NO:</h2>
+            <input type="number" placeholder="mobile no">
+            <br>
+            <input type="text" placeholder="otp">
+            <br>
+            <br>
+            <br>
+            <a href="./index.html">
+            <button type="button">VERIFY</button>
+            </a>
+            <H2>WE ARE SENDING OUR OTP CODE</H2>
+            <button type="button" onclick="resend_otp()">RESEND OTP</button>
+        </label>
+    </div>
+</body>
+</html>

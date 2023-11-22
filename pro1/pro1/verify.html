@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var otp2=Math.floor(Math.random()*999999)
+alert(otp2)
+        function otp_verification2(){
+            var user_otp2=document.getElementById("OTP2").value 
+            if(otp2==user_otp2){
+                window.location.href="./index.html"
+            }
+            else{
+            document.getElementById("otp_error2").innerHTML="Incorrect OTP"
+            document.getElementById("otp_error2").style.color="red"
+            document.getElementById("otp_error2").style.fontSize="20px"
+            }
+
+        }
+       
+    </script>
+    <style>
+        fieldset{
+            width: 5cm;
+            height: 5cm;
+            background: linear-gradient(rgb(135, 223, 135),rgb(90, 90, 175));
+            margin-left: 15cm;
+            margin-top:5cm;
+        }
+        body{
+            background-color: beige;
+        }
+        input{
+            width:5cm;
+            height: 20px;
+            border-radius: 10px;
+        }
+        button{
+            background-color: burlywood;
+            width:3cm;
+            height: 20px;
+            border-radius:10px;
+        }
+    </style>
+</head>
+<body>
+    <fieldset>
+        <input type="text" placeholder="OTP" id="OTP2">
+        <br>
+        <br>
+        <br>
+        <br>
+        <button onclick="otp_verification2()">verify</button>
+<br>
+
+
+    </fieldset>
+    
+</body>
+</html>

@@ -1,0 +1,71 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <script>
+          function login_validation()
+          {
+    var db={'pavithra':'pavi@15','praveen':'pavi@22'}
+    var username=document.getElementById("username").value 
+    var password=document.getElementById("password").value
+    var all_users=Object.keys(db)
+    var flag=false
+    for(var i=0;i<all_users.length;i++){
+        if((all_users[i]==username)&&(db[all_users[i]]==password)){
+            flag=true
+        }
+    }
+    if(flag==true){
+        window.location.href="home.html"
+    }else{
+document.getElementById("error").innerHTML="*Invalid Username or Incorrect Password"
+document.getElementById("error").style.color="red"
+    }
+}
+            
+        
+    </script>
+    
+</head>
+<body>
+    <div  id="front">
+        <h3 id="title">SMART PARKING PORTAL</h3>
+        <fieldset  id="f1">
+               <form>    
+                    
+               <input type="text"placeholder="username" id="username">
+                <br>
+                <br>
+                <input type="password" placeholder="password" id="password">
+                <br>
+                <br>
+             <a href="./forgetpass.html" id="link1">forget  password</a>
+             <br>
+             <!-- <br><a href="./home.html"> -->
+                  <button type="button" onclick="login_validation()" id="b1">LOGIN</button>
+                  
+                  <p id="error">
+
+                  </p>
+                  <br>
+                  <br>
+                 
+               </form>
+                
+        </fieldset>
+    </div>
+    <div id="div2">
+        <a href="./home.html" id="link2"> HOME</a>
+        <a href="./about.html" id="link3">ABOUT AS</a>
+        <a href="./contact.html"id="link4">CONTACT US</a>
+        <a href="./singup.html">
+            <button type="button"  id="b2">SINGUP</button></a>
+    </div>
+</body>
+</html>
